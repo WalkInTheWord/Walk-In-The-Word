@@ -1,0 +1,25 @@
+
+workflows:
+  build-app:
+    name: Build Walk in the Word App
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+      - name: Build Android AppBundle
+        script: |
+          flutter build appbundle --release
+      - name: Build iOS app
+        script: |
+          flutter build ios --release --no-codesign
+    artifacts:
+      - build/app/outputs/**/*.aab
+      - build/ios/iphoneos/*.app
+    publishing:
+      email:
+        recipients:
+          - support@walkinthewordapp.com
