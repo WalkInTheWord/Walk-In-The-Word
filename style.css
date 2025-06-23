@@ -1,0 +1,6 @@
+body { font-family: sans-serif; margin: 0; padding: 0; background-color: #fff; color: #333; }
+header, footer { background-color: #0a0a0a; color: #fff; padding: 1em; text-align: center; }
+main { padding: 1em; }
+button { margin-top: 1em; padding: 0.5em 1em; }
+.dark-mode { background-color: #121212; color: #eee; }
+.dark-mode header, .dark-mode footer { background-color: #1f1f1f; }
