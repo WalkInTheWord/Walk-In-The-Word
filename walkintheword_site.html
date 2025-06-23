@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walk in the Word App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Walk in the Word</h1>
+    <nav>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#verse">Verse of the Day</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><button id="darkToggle">🌓</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <h2>Your Daily Bible Companion</h2>
+      <p>Read, listen, study, and explore the Bible with tools rooted in sound doctrine.</p>
+      <a href="#download" class="btn">Download the App</a>
+    </section>
+
+    <section id="features">
+      <h3>Features</h3>
+      <ul>
+        <li>✔ Word-for-word translations (ESV, KJV, NASB, LSV, and more)</li>
+        <li>✔ Strong’s Concordance with clickable references</li>
+        <li>✔ Reading Plans: 30-day, 6-month, 1-year, chronological</li>
+        <li>✔ Audio Bible playback with speed control</li>
+        <li>✔ New: Messianic Highlighting + Worduko game</li>
+        <li>✔ Secure & offline-friendly – no ads, no tracking</li>
+      </ul>
+    </section>
+
+    <section id="verse">
+      <h3>Bible Verse of the Day</h3>
+      <div id="dailyVerse">Loading verse...</div>
+    </section>
+
+    <section id="download">
+      <h3>Get the App</h3>
+      <a href="#"><img src="/assets/appstore-badge.svg" alt="Download on the App Store" /></a>
+      <a href="#"><img src="/assets/playstore-badge.png" alt="Get it on Google Play" /></a>
+    </section>
+
+    <section id="support">
+      <h3>Need Help?</h3>
+      <p>Email: <a href="mailto:support@walkinthewordapp.com">support@walkinthewordapp.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Walk in the Word. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    // Verse of the Day (placeholder)
+    document.getElementById('dailyVerse').innerText =
+      '"Your word is a lamp to my feet and a light to my path." – Psalm 119:105';
+  </script>
+</body>
+</html>
