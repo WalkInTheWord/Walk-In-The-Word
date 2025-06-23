@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walk in the Word App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="lang-toggle.js"></script>
+  <script defer src="bible-widget.js"></script>
+</head>
+<body>
+  <header>
+    <h1 data-en="Walk in the Word App" data-es="Camina en la Palabra">Walk in the Word App</h1>
+    <button id="toggle-lang">Español</button>
+    <button id="toggle-dark">🌙</button>
+  </header>
+
+  <main>
+    <section id="verse-of-the-day">
+      <h2 data-en="Verse of the Day" data-es="Versículo del Día">Verse of the Day</h2>
+      <blockquote id="daily-verse">Loading...</blockquote>
+    </section>
+
+    <section>
+      <h2 data-en="App Features" data-es="Características de la Aplicación">App Features</h2>
+      <ul>
+        <li data-en="Read or listen to the Bible in English and Spanish." data-es="Lee o escucha la Biblia en inglés y español.">Read or listen to the Bible in English and Spanish.</li>
+        <li data-en="Strong’s Concordance with clickable references." data-es="Concordancia Strong con referencias interactivas.">Strong’s Concordance with clickable references.</li>
+        <li data-en="Worduko: Word puzzles based on Bible reading." data-es="Worduko: Rompecabezas de palabras basados en la lectura bíblica.">Worduko: Word puzzles based on Bible reading.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-en="Download the App" data-es="Descargar la Aplicación">Download the App</h2>
+      <a href="#" data-en="Download for iOS" data-es="Descargar para iOS">Download for iOS</a> |
+      <a href="#" data-en="Download for Android" data-es="Descargar para Android">Download for Android</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Walk in the Word</p>
+  </footer>
+
+  <script>
+    document.getElementById('toggle-lang').addEventListener('click', () => {
+      const currentLang = document.documentElement.lang;
+      const newLang = currentLang === 'en' ? 'es' : 'en';
+      document.documentElement.lang = newLang;
+      document.getElementById('toggle-lang').innerText = newLang === 'en' ? 'Español' : 'English';
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerText = el.dataset[newLang];
+      });
+    });
+
+    document.getElementById('toggle-dark').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Bible verse placeholder fetch (replace with actual API if desired)
+    document.getElementById('daily-verse').innerText = "'Your word is a lamp to my feet and a light to my path.' - Psalm 119:105";
+  </script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #fff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    button {
+      margin-left: 0.5rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+    }
+  </style>
+</body>
+</html>
