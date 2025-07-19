@@ -1,0 +1,9 @@
+Walk in the Word is a Bible reading and audio app offering access to trusted word-for-word translations (ESV, KJV, NASB, NKJV). Listen or read scripture daily with synchronized audio, Strong’s concordance tools, and personalized reading plans. Track your spiritual journey through notes, highlights, and daily analytics—all with strong privacy and no tracking.
+
+FEATURES:
+- Audio synced with scripture
+- Highlighting & verse sharing
+- Strong’s Numbers and cross-references
+- 30-day, 6-month, 1-year, and chronological plans
+- Secure, ad-free experience
+- Study tools for beginners and seasoned believers
