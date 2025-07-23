@@ -1,4 +1,3 @@
-
 workflows:
   walk_in_the_word_build:
     name: Walk in the Word – CI/CD
