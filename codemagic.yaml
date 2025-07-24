@@ -1,22 +1,8 @@
-workflows:
-  walk_in_the_word_build:
-    name: Walk in the Word – CI/CD
-    working_directory: .
-    environment:
-      flutter: stable
-      xcode: latest
-    scripts:
-      - name: Install dependencies
-        script: |
-          flutter pub get
-      - name: Run analyzer
-        script: |
-          flutter analyze
-      - name: Run tests
-        script: |
-          flutter test
-      - name: Build APK
-        script: |
-          flutter build apk --release
-    artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
