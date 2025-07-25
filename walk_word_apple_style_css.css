@@ -1,0 +1,98 @@
+/* Apple-Style Polished Theme for Walk in the Word */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: linear-gradient(180deg, #f4f6fa 0%, #ffffff 100%);
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.hero {
+  background: linear-gradient(120deg, #e8ebf7, #fdfdfe);
+  text-align: center;
+  padding: 4rem 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c2c2e;
+}
+
+.hero .tagline {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.btn, .btn-outline {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+  margin: 0.5rem;
+}
+
+.btn {
+  background: linear-gradient(135deg, #007aff, #0a84ff);
+  color: #fff;
+  border: none;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #005ecb, #0066d6);
+}
+
+.btn-outline {
+  border: 2px solid #0a84ff;
+  color: #0a84ff;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #e5f0ff;
+}
+
+.features, .bible-versions, .download {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.features h2, .bible-versions h2, .download h2 {
+  font-size: 1.75rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: left;
+}
+
+.feature-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.footer {
+  background: #f2f2f7;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #888;
+  border-top: 1px solid #dee2e6;
+}
