@@ -1,0 +1,32 @@
+name: APO-006 CI
+
+on:
+  pull_request:
+    paths:
+      - 'engineering/APO-006/**'
+      - '.github/workflows/apo-006-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore engineering/APO-006/tests/APO-006.Tests/APO-006.Tests.csproj
+
+      - name: Build
+        run: dotnet build engineering/APO-006/tests/APO-006.Tests/APO-006.Tests.csproj --configuration Release --no-restore
+
+      - name: Run focused tests
+        run: dotnet run --project engineering/APO-006/tests/APO-006.Tests/APO-006.Tests.csproj --configuration Release --no-build
