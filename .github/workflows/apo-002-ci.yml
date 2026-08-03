@@ -1,0 +1,42 @@
+name: APO-002 CI
+
+on:
+  push:
+    branches:
+      - agent/apo-002-ci
+    paths:
+      - 'engineering/APO-002/**'
+      - '.github/workflows/apo-002-ci.yml'
+  pull_request:
+    paths:
+      - 'engineering/APO-002/**'
+      - '.github/workflows/apo-002-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: engineering/APO-002
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore APO-002.sln
+
+      - name: Build
+        run: dotnet build APO-002.sln --configuration Release --no-restore
+
+      - name: Run focused tests
+        run: dotnet run --project tests/APO-002.Tests/APO-002.Tests.csproj --configuration Release --no-build
