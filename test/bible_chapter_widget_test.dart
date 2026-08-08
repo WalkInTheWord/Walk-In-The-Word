@@ -33,7 +33,9 @@ void main() {
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(MaterialApp(home: BibleChapterWidget()));
-    await tester.pump(const Duration(seconds: 1));
+    await tester.runAsync(() async {
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+    });
     await tester.pumpAndSettle();
 
     expect(find.text('Genesis 1'), findsOneWidget);
