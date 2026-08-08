@@ -8,7 +8,7 @@ class BibleChapterWidget extends StatefulWidget {
 }
 
 class _BibleChapterWidgetState extends State<BibleChapterWidget> {
-  List<dynamic> _verses = [];
+  List<Map<String, dynamic>> _verses = [];
 
   @override
   void initState() {
@@ -18,9 +18,11 @@ class _BibleChapterWidgetState extends State<BibleChapterWidget> {
 
   Future<void> loadChapter() async {
     final String response = await rootBundle.loadString('assets/bible/genesis_1.json');
-    final data = await json.decode(response);
+    final data = json.decode(response) as Map<String, dynamic>;
+    final verses = (data['verses'] as List<dynamic>)
+        .cast<Map<String, dynamic>>();
     setState(() {
-      _verses = data['verses'];
+      _verses = verses;
     });
   }
 
@@ -34,7 +36,7 @@ class _BibleChapterWidgetState extends State<BibleChapterWidget> {
           final verse = _verses[index];
           return ListTile(
             leading: Text(verse['verse'].toString()),
-            title: Text(verse['text']),
+            title: Text(verse['text'] as String),
           );
         },
       ),
