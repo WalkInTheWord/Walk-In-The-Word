@@ -9,18 +9,20 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test('Genesis 1 asset has a valid sequential verse structure', () async {
-    final source = await rootBundle.loadString(
+    final String source = await rootBundle.loadString(
       'assets/bible/genesis_1.json',
     );
-    final chapter = jsonDecode(source) as Map<String, dynamic>;
-    final verses = chapter['verses'] as List<dynamic>;
+    final Map<String, dynamic> chapter =
+        jsonDecode(source) as Map<String, dynamic>;
+    final List<dynamic> verses = chapter['verses'] as List<dynamic>;
 
     expect(chapter['book'], 'Genesis');
     expect(chapter['chapter'], 1);
     expect(verses, isNotEmpty);
 
-    for (var index = 0; index < verses.length; index++) {
-      final verse = verses[index] as Map<String, dynamic>;
+    for (int index = 0; index < verses.length; index++) {
+      final Map<String, dynamic> verse =
+          verses[index] as Map<String, dynamic>;
       expect(verse['verse'], index + 1);
       expect(verse['text'], isA<String>());
       expect((verse['text'] as String).trim(), isNotEmpty);
@@ -31,6 +33,7 @@ void main() {
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(MaterialApp(home: BibleChapterWidget()));
+    await tester.pump(const Duration(seconds: 1));
     await tester.pumpAndSettle();
 
     expect(find.text('Genesis 1'), findsOneWidget);
