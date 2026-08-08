@@ -21,7 +21,7 @@ jobs:
         # Fetch what to compare the commit against
         run: |
           git fetch --no-tags --prune --depth=1 origin ${{ github.event.pull_request.base.sha }}
-          git fetch --no-tags --prune --depth=1 origin master
+          git fetch --no-tags --prune --depth=1 origin main
           echo "FLUTTER_PREBUILT_ENGINE_VERSION=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_ENV"
 
       - name: Initialize Dart SDK
